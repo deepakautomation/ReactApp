@@ -18,15 +18,17 @@ class CartItem extends React.Component{
                         {/* buttons */}
                         <img alt="increase" 
                         className="action-icons" 
-                        src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1615700718~hmac=1c9b7b9d5a225e22ee0069a05221c080" 
+                        src="https://image.flaticon.com/icons/svg/992/992651.svg" 
                         onClick={()=> this.props.onIncreaseQuantity(this.props.product)} />
                         <img alt="decrease" 
                         className="action-icons" 
-                        src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1615700643~hmac=ca1e5973141246a18733443c2dda0fd1" 
-                        onClick={this.decreaseQuantity} />
+                        src="https://image.flaticon.com/icons/svg/1665/1665612.svg" 
+                        onClick={()=> this.props.onDecreaseQuantity(this.props.product)} />
                         <img alt="delete" 
                         className="action-icons" 
-                        src="https://www.flaticon.com/svg/vstatic/svg/1214/1214428.svg?token=exp=1615701239~hmac=de5ce68dac21cee367bb47d45045531c" />
+                        src="https://image.flaticon.com/icons/svg/1214/1214428.svg" 
+                        onClick={()=> this.props.onDeleteItem(this.props.product.id)}
+                        />
                     </div>
                 </div>
             </div>

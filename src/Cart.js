@@ -46,6 +46,30 @@ class Cart extends React.Component{
             products:products // right side products is the product in line 42, 38. LHS is the main products arr
         })
     }
+
+    handleDecreaseQuantity = (product)=>{ // this function will accept a product to be decrease
+        const {products} = this.state; // get products which are in form of array from state
+        //get index of product(line no 36) in the products array
+        const index = products.indexOf(product);
+
+        products[index].qty -= 1;
+
+        //set state
+        this.setState({
+            products:products // right side products is the product in line 42, 38. LHS is the main products arr
+        })
+    }
+
+    handleDeleteProduct = (id)=>{ 
+        const {products} = this.state; 
+      
+        const items = products.filter((item)=> item.id !== id);
+
+        //set state
+        this.setState({
+            products:items
+        })
+    }
     render(){
         const {products} = this.state;
         return (
@@ -55,7 +79,8 @@ class Cart extends React.Component{
                     product={product} 
                     key={product.id}
                     onIncreaseQuantity={this.handleIncreaseQuantity}
-
+                    onDecreaseQuantity={this.handleDecreaseQuantity}
+                    onDeleteItem={this.handleDeleteProduct}
                     />
                 })}
             </div>
